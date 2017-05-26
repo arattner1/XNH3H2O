@@ -9,25 +9,25 @@
 
 # Files
 Copy the following files to your MATLAB working directory:
-`<XNH3H2O.c NH3H2O.c NH3H2O.h kdtree.c kdtree.h PropLib2.dat>`
+`XNH3H2O.c NH3H2O.c NH3H2O.h kdtree.c kdtree.h PropLib2.dat`
 
 # Compiling
-To compile in matlab, run: `<mex XNH3H2O.c NH3H2O.c kdtree.c>`
+To compile in matlab, run: `mex XNH3H2O.c NH3H2O.c kdtree.c`
 Note, for compiling on new versions of gcc (on *nix systems), you may need to use the command:
-`<mex -v CFLAGS="\$CFLAGS -std=c99" kdtree.c NH3H2O.c XNH3H2O.c -o XNH3H2O>`
+`mex -v CFLAGS="\$CFLAGS -std=c99" kdtree.c NH3H2O.c XNH3H2O.c -o XNH3H2O`
 this supports "//" style comments (strict ANSI-C may only support "/**/" style comments
 
 # Running
-Initialize with:  `<XNH3H2O('INIT', 'PropLib2.dat');>`
-Example run call: `<Q = XNH3H2O('TPX_Q', 345, 7E5, 0.4140);>`
-Save current library: `<XNH3H2O('SAVE', 'NewPropLib.dat');>`
-End session with: `<XNH3H2O('END');>`
+Initialize with:  `XNH3H2O('INIT', 'PropLib2.dat');`
+Example run call: `Q = XNH3H2O('TPX_Q', 345, 7E5, 0.4140);`
+Save current library: `XNH3H2O('SAVE', 'NewPropLib.dat');`
+End session with: `XNH3H2O('END');`
 
 # Supported Calls
-Triples that are supported:  `<TPX TPQ TXV PXH PXQ XVU>`
-Property suffixes supported: `<T P X Q H U V S x y>`
+Triples that are supported:  `TPX TPQ TXV PXH PXQ XVU`
+Property suffixes supported: `T P X Q H U V S x y`
 Supports evaluation of DTPX_DXVU derivative which returns a 9-element array with the values: dT/dX, dT/dV, dT/dU, dP/dX, dP/dV, dP/dU, dX/dX, dX/dV, dX/dU
-Also supports `<XVU_TPX>`, which receives a 6-element array input of XVU and approximate TPX, and returns the TPX triple corresponding to XVU
+Also supports `XVU_TPX`, which receives a 6-element array input of XVU and approximate TPX, and returns the TPX triple corresponding to XVU
 
 
 # Version history
