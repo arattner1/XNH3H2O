@@ -1,4 +1,4 @@
-# NH3H2O                 Ammonia-Water thermodynamic mixture properties for MATLAB
+# XNH3H2O                 Ammonia-Water thermodynamic mixture properties for MATLAB
 ## Current version         1.15
     Alex Rattner            Multiscale Thermal Fluids & Energy Laboratory   05/26/2017
                             The Pennsylvania State University                                                    
