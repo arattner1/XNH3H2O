@@ -9,7 +9,7 @@
 
 # Files
 Copy the following files to your MATLAB working directory:
-XNH3H2O.c NH3H2O.c NH3H2O.h kdtree.c kdtree.h PropLib2.dat
+`<XNH3H2O.c NH3H2O.c NH3H2O.h kdtree.c kdtree.h PropLib2.dat>`
 
 # Compiling
 To compile in matlab, run: `<mex XNH3H2O.c NH3H2O.c kdtree.c>`
