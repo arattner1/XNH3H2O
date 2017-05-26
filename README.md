@@ -48,8 +48,8 @@ Also supports `<XVU_TPX>`, which receives a 6-element array input of XVU and app
 * Fixed small issue resulting from bad initial guesses for x and y when Q = 0/1
 
 ## Version 1.11, 08/23/2011
--Fixed minor issue with PXH calls where x and y could be outside [0,1]
--Fixed small issue with TXV calls
+* Fixed minor issue with PXH calls where x and y could be outside [0,1]
+* Fixed small issue with TXV calls
 
 ## Version 1.10, 08/11/2011
 * Improved behavior of XVU routines, should be safe to use now
