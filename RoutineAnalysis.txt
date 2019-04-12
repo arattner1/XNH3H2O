@@ -1,0 +1,106 @@
+Analysis of some specific property relations
+
+#define T_B		100			//Reference temperature in [K]
+#define P_B		1.0E6		//Reference pressure in [Pa]
+#define R_U		8314.47		//Universal gas constant [J/kmol-K]
+
+#define MW_W	18.01530	//Molecular weight of water in [kg/kmol]
+#define MW_A	17.03056	//Molecular weight of ammonia in [kg/kmol]
+
+
+#define	A_1_W		 2.748796E-2
+#define	A_2_W		-1.016665E-5
+#define	A_3_W		-4.452025E-3
+#define	A_4_W		 8.389246E-4
+
+#define	C_1_W		 2.136131E-2
+#define	C_2_W		-3.169291E1
+#define	C_3_W		-4.634611E4
+#define C_4_W		 0.0
+
+#define	A_1_A		 3.971423E-2
+#define	A_2_A		-1.790557E-5
+#define	A_3_A		-1.308905E-2
+#define	A_4_A		 3.752836E-3
+
+
+#define	C_1_A		-1.049377E-2
+#define	C_2_A		-8.288224
+#define	C_3_A		-6.647257E2
+#define C_4_A		-3.045352E3
+
+
+
+//Evaluates the specific volume of liquid water
+double V_lw (double T, double P)
+{
+	//Define variable
+	double		V_r_lw;		//Reduced volume of liquid water
+	double		T_r, P_r;	//Reduced quantities
+	
+	//Calculate reduced variables
+	T_r		= T / T_B;
+	P_r		= P / P_B;
+	
+	//Reduced volume of liquid water
+	V_r_lw	= A_1_W + A_3_W*T_r + A_4_W*pow(T_r,2) + A_2_W*P_r;
+
+	//Return specific volume
+	return ( V_r_lw * R_U * T_B / (P_B * MW_W) );
+}
+
+//Evaluates the specific volume of vapor water
+double V_vw (double T, double P)
+{
+	//Define variable
+	double		V_r_vw;		//Reduced volume of vapor water
+	double		T_r, P_r;	//Reduced quantities
+	
+	//Calculate reduced variables
+	T_r		= T / T_B;
+	P_r		= P / P_B;
+	
+	//Reduced volume of vapor water
+	V_r_vw	= T_r/P_r + C_1_W + C_2_W/pow(T_r,3) + C_3_W/pow(T_r,11) + C_4_W*pow(P_r,2)/pow(T_r,11);
+
+	//Return specific volume
+	return ( V_r_vw * R_U * T_B / (P_B * MW_W) );
+}
+
+//Evaluates the specific volume of liquid ammonia
+double V_la (double T, double P)
+{
+	//Define variable
+	double		V_r_la;		//Reduced volume of liquid ammonia
+	double		T_r, P_r;	//Reduced quantities
+	
+	//Calculate reduced variables
+	T_r		= T / T_B;
+	P_r		= P / P_B;
+	
+	//Reduced volume of liquid ammonia
+	V_r_la	= A_1_A + A_3_A*T_r + A_4_A*pow(T_r,2) + A_2_A*P_r;
+
+	//Return specific volume
+	return ( V_r_la * R_U * T_B / (P_B * MW_A) );
+}
+
+
+
+//Evaluates the specific volume of vapor ammonia
+double V_va (double T, double P)
+{
+	//Define variable
+	double		V_r_va;		//Reduced volume of vapor ammonia
+	double		T_r, P_r;	//Reduced quantities
+	
+	//Calculate reduced variables
+	T_r		= T / T_B;
+	P_r		= P / P_B;
+	
+	//Reduced volume of vapor ammonia
+	V_r_va	= T_r/P_r + C_1_A + C_2_A/pow(T_r,3) + C_3_A/pow(T_r,11) + C_4_A*pow(P_r,2)/pow(T_r,11);
+
+	//Return specific volume
+	return ( V_r_va * R_U * T_B / (P_B * MW_A) );
+}
